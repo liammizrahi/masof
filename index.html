@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: 'MesloLGS NF';
+            src: url('static/fonts/meslolgs_nf_regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body, html {
+            height: 100%;
+            width: 100%;
+            background: black;
+        }
+        #terminal {
+            height: 100%;
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+</head>
+<body>
+<div id="terminal"></div>
+<script src="node_modules/xterm/lib/xterm.js"></script>
+<script src="node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+<script src="terminal.js"></script>
+</body>
+</html>
