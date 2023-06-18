@@ -5,18 +5,27 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.liammizrahi.masofjs",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^25.1.1",
     "node-pty": "^1.0.0",
     "xterm": "^5.2.1",
     "xterm-addon-fit": "^0.7.0"
   },
   "devDependencies": {
+    "electron": "^25.1.1",
+    "electron-builder": "^24.4.0",
     "electron-rebuild": "^3.2.9"
   }
 }

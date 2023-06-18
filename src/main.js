@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const pty = require('node-pty');
+const fs = require("fs");
 
 let mainWindow = null;
 let shell = null;
@@ -15,7 +16,7 @@ function createWindow () {
     });
 
     mainWindow.loadFile('static/html/index.html').then(() => {
-        console.log("INDEX LOADED");
+        console.log("App started");
     });
     mainWindow.on('closed', () => {
         mainWindow = null;
@@ -34,9 +35,22 @@ function createWindow () {
         shell.write(input);
     });
 
+    let currentPath = '';
+    let updatingPath = false;
     shell.on('data', function(data) {
         mainWindow.webContents.send('termOutput', data);
     });
+
+    // setInterval(() => {
+    //     shell.write(`while sleep 1; do pwd > /tmp/current-dir; done &\r`);
+    //     fs.readFile('/tmp/current-dir', 'utf8', (err, data) => {
+    //         if (err) {
+    //             console.log(err);
+    //         } else {
+    //             mainWindow.setTitle(`Terminal - ${data}`);
+    //         }
+    //     });
+    // }, 1000);
 }
 
 app.on('ready', createWindow);
