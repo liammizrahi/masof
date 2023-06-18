@@ -7,7 +7,7 @@ const term = new Terminal({
     fontFamily: 'Courier, MesloLGS NF'
 });
 const fitAddon = new FitAddon();
-term.loadAddon(fitAddon);
+//term.loadAddon(fitAddon);
 
 // Attach created terminal to a DOM element
 term.open(document.getElementById('terminal'));
@@ -15,4 +15,4 @@ term.open(document.getElementById('terminal'));
 term.onData(data => ipcRenderer.send('termInput', data));
 ipcRenderer.on('termOutput', (event, data) => term.write(data));
 
-window.addEventListener('resize', () => fitAddon.fit());
+//window.addEventListener('resize', () => fitAddon.fit());

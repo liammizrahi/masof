@@ -14,7 +14,7 @@ function createWindow () {
         }
     });
 
-    mainWindow.loadFile('index.html').then(() => {
+    mainWindow.loadFile('static/html/index.html').then(() => {
         console.log("INDEX LOADED");
     });
     mainWindow.on('closed', () => {
